@@ -5,7 +5,7 @@ import Link from 'next/link';
 export default function Success() {
     return(
         <SuccessContainer>
-            <h1>Compra Efetuada Com Sucesso</h1>
+            <h1>Compra Efetuada Com Sucesso!</h1>
 
             <ImageContainer>
 
