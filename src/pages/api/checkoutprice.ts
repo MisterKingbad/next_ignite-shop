@@ -13,18 +13,18 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return res.status(400).json({ error: 'Price not found.' });
     }
 
-    const successurl = `${process.env.NEXT_URL}/success`;
-    const cancelurl = `${process.env.NEXT_URL}/`;
+    const successUrl = `${process.env.NEXT_URL}/success`;
+    const cancelUrl = `${process.env.NEXT_URL}/`;
 
   const checkoutSession = await stripe.checkout.sessions.create({
-    success_url: successurl,
-    cancel_url: cancelurl,
+    success_url: successUrl,
+    cancel_url: cancelUrl,
     mode: "payment",
     line_items: [
-    {
+      {
         price: priceId,
         quantity: 1,
-    }
+      }
     ],
   })
 

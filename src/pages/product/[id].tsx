@@ -20,8 +20,7 @@ interface Productprops {
 
 export default function Product({ product }: Productprops) {
   const [isCreatingCheckoutSession, setIsCreatingCheckoutSession] = useState(false);
-
-
+  
   async function handleBuyProduct() {
     try {
       setIsCreatingCheckoutSession(true);
@@ -50,7 +49,6 @@ export default function Product({ product }: Productprops) {
   // if (isFallback) {
   //   return <p>Carregando...</p>
   // }
-
   return (
     <ProductContainer>
 
