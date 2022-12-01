@@ -5,6 +5,7 @@ import { Stripe } from 'stripe';
 import { ImageContainer, ProductContainer, ProductDetails } from '../../styles/pages/product';
 import Image from 'next/image';
 import axios from "axios";
+import Head from 'next/head';
 
 
 interface Productprops {
@@ -50,22 +51,29 @@ export default function Product({ product }: Productprops) {
   //   return <p>Carregando...</p>
   // }
   return (
-    <ProductContainer>
+    <>
 
-      <ImageContainer>
-        <Image src={product.imageUrl} width={520} height={480} alt="" />
-      </ImageContainer>
+      <Head>
+        <title>{product.name} | Ignite shop</title>
+      </Head>
 
-      <ProductDetails>
-        <h1>{product.name}</h1>
-        <span>{product.price}</span>
-        <p>{product.description}</p>
+      <ProductContainer>
 
-        <button disabled={isCreatingCheckoutSession} onClick={handleBuyProduct}> 
-          Comprar agora!
-        </button>
-      </ProductDetails>
-    </ProductContainer>
+        <ImageContainer>
+          <Image src={product.imageUrl} width={520} height={480} alt="" />
+        </ImageContainer>
+
+        <ProductDetails>
+          <h1>{product.name}</h1>
+          <span>{product.price}</span>
+          <p>{product.description}</p>
+
+          <button disabled={isCreatingCheckoutSession} onClick={handleBuyProduct}> 
+            Comprar agora!
+          </button>
+        </ProductDetails>
+      </ProductContainer>
+    </>
   )
 }
 
